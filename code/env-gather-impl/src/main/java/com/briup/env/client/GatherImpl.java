@@ -1,0 +1,171 @@
+package com.briup.env.client;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Properties;
+
+import com.briup.env.Configuration;
+import com.briup.env.bean.Environment;
+import com.briup.env.support.ConfigurationAware;
+import com.briup.env.support.PropertiesAware;
+import com.briup.env.util.Backup;
+import com.briup.env.util.Log;
+
+public class GatherImpl implements Gather,PropertiesAware,ConfigurationAware{
+	
+	private String dataFilePath;
+	
+	private Backup backup;
+	private Log logger;
+	
+	@Override
+	public Collection<Environment> gather() throws Exception {
+		
+		Collection<Environment> list = new ArrayList<Environment>();
+		
+		BufferedReader in = null;
+		InputStream is = null;
+		
+		logger.debug("采集模块读取数据文件:"+dataFilePath);
+		is = getClass().getClassLoader().getResourceAsStream(dataFilePath);
+		
+		in = new BufferedReader(new InputStreamReader(is));
+		logger.debug("采集模块读取数据文件读取成功："+dataFilePath);
+		
+		int fileLen = is.available();
+		logger.debug("采集模块当前数据文件中可读取的字节数："+fileLen);
+		
+		Integer len = (Integer)backup.load("length.bak",Backup.LOAD_UNREMOVE);
+		if(len!=null) {
+			logger.debug("采集模块读取备份数据值为："+len);
+			in.skip(len);
+		}else {
+			logger.debug("采集模块读取备份文件为空");
+		}
+		
+		logger.debug("采集模块备份当前读取的字节数："+(fileLen+2));
+		backup.store("length.bak", fileLen+2, Backup.STORE_OVERRIDE);
+		
+		//100|101|2|16|1|3|5d606f7802|1|1516323596029
+		// 0   1  2  3 4 5     6      7      8
+		
+		logger.debug("采集模块准备循环读取数据文件内容");
+		String line = null;
+		while((line=in.readLine())!=null) {
+			//处理
+			String[] arr = line.split("[|]");
+			if(arr.length != 9) {
+				logger.warn("发现异常数据:"+line);
+				logger.warn("跳过当前循环，进入下次循环");
+				continue;
+			}
+			
+			Environment env = null;
+			
+			env = new Environment();
+			env.setSrcId(arr[0]);
+			env.setDesId(arr[1]);
+			env.setDevId(arr[2]);
+			env.setCount(Integer.parseInt(arr[4]));
+			env.setCmd(arr[5]);
+			env.setStatus(Integer.parseInt(arr[7]));
+			env.setGather_date(new Timestamp(Long.parseLong(arr[8])));
+			
+			String dataStr = null;
+			int data = -1;
+			
+			switch (arr[3]) {
+				case "16"://温度、湿度
+					
+					//处理温度数据
+					env.setName("温度");
+					dataStr = arr[6].substring(0,4);
+					data = Integer.parseInt(dataStr, 16);
+//					(data*(0.0.00268127F))-46.85;
+					env.setData((data*(0.00268127F))-46.85F);
+					
+					list.add(env);
+					
+					//处理湿度数据
+					Environment copyEnv = copyEnv(env);
+					copyEnv.setName("湿度");
+					dataStr = arr[6].substring(4,8);
+					data = Integer.parseInt(dataStr, 16);
+					//((float)value*0.00190735)-6
+					copyEnv.setData((data*0.00190735F)-16);
+					
+					list.add(env);
+					
+					break;
+					
+				case "256"://光照强度
+					
+					env.setName("光照强度");
+					dataStr = arr[6].substring(0,4);
+					data = Integer.parseInt(dataStr, 16);
+					env.setData(data);
+					
+					list.add(env);
+					
+					break;
+				
+				case "1280"://二氧化碳
+					
+					env.setName("二氧化碳");
+					dataStr = arr[6].substring(0,4);
+					data = Integer.parseInt(dataStr, 16);
+					env.setData(data);
+					
+					list.add(env);
+					
+					break;
+					
+				default:
+					System.out.println("未知类型的数据(16|256|1280) :"+arr[3]);
+					break;
+			}
+			
+		}
+		
+		if(is!=null)is.close();
+		if(in!=null)in.close();
+		
+		//数据读完
+		
+		logger.info("采集模块执行结束，共采集到数据"+list.size()+"条");
+		
+		return list;
+	}
+
+
+	private Environment copyEnv(Environment env) {
+		
+		Environment copyEnv = new Environment();
+		copyEnv.setSrcId(env.getSrcId());
+		copyEnv.setDesId(env.getDesId());
+		copyEnv.setDevId(env.getDevId());
+		copyEnv.setCount(env.getCount());
+		copyEnv.setCmd(env.getCmd());
+		copyEnv.setStatus(env.getStatus());
+		copyEnv.setGather_date(env.getGather_date());
+		return copyEnv;
+	}
+
+
+	@Override
+	public void init(Properties p) throws Exception {
+		dataFilePath = p.getProperty("data-file-path");
+	}
+
+
+	@Override
+	public void setConfiguration(Configuration configuration) throws Exception {
+		backup = configuration.getBackup();
+		logger = configuration.getLogger();
+	}
+
+}
