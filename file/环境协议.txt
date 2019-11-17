@@ -1,0 +1,374 @@
+申请数据：
+采集二氧化碳申请:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>2</DevID>
+        <SensorAddress>1280</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取PM2.5数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>4</DevID>
+        <SensorAddress>1792</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取光敏检测数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>2</DevID>
+        <SensorAddress>256</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取甲烷数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>3</DevID>
+        <SensorAddress>1024</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取温度数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>2</DevID>
+        <SensorAddress>16</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取火光检测数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>3</DevID>
+        <SensorAddress>9</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取烟雾数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>3</DevID>
+        <SensorAddress>10</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+申请获取紫外线数据:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>2</DevID>
+        <SensorAddress>512</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+警报:
+构造的xml协议 "
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>5</DevID>
+        <SensorAddress>272</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>3</Cmd>
+        <Status>1</Status>
+</Message>
+
+
+
+
+控制数据：
+一键开门:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>8</DevID>
+        <SensorAddress>2816</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+一键开车库:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>6</DevID>
+        <SensorAddress>2560</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+一键关车库:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>6</DevID>
+        <SensorAddress>2560</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0002</Data>
+        <Status>1</Status>
+</Message>
+
+大厅灯开:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1539</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0004</Data>
+        <Status>1</Status>
+</Message>
+
+大厅灯关:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1539</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0005</Data>
+        <Status>1</Status>
+</Message>
+
+开电视:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>4097</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+关电视
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>4097</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0002</Data>
+        <Status>1</Status>
+</Message>
+
+空调开:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>4096</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+空调关:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>4096</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0002</Data>
+        <Status>1</Status>
+</Message>
+
+窗帘开:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>3840</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+窗帘关:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>7</DevID>
+        <SensorAddress>3840</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0002</Data>
+        <Status>1</Status>
+</Message>
+
+呼吸灯:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1584</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0007</Data>
+        <Status>1</Status>
+</Message>
+
+关呼吸灯:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1584</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0008</Data>
+        <Status>1</Status>
+</Message>
+
+卧室炫彩灯（同客厅）[1 - 6]:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1584</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+卧室灯光调节(1 - 5):
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1537</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0004</Data>
+        <Status>1</Status>
+</Message>
+
+大厅灯光调节(1 - 5):
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1539</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+报警器开:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>5</DevID>
+        <SensorAddress>272</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0001</Data>
+        <Status>1</Status>
+</Message>
+
+报警器关:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>5</DevID>
+        <SensorAddress>272</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0002</Data>
+        <Status>1</Status>
+</Message>
+
+
+卧室开灯:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1537</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0004</Data>
+        <Status>1</Status>
+</Message>
+
+卧室关灯:
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+        <SrcID>100</SrcID>
+        <DstID>101</DstID>
+        <DevID>1</DevID>
+        <SensorAddress>1537</SensorAddress>
+        <Counter>1</Counter>
+        <Cmd>16</Cmd>
+        <Data>0005</Data>
+        <Status>1</Status>
+</Message>

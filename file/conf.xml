@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<gather class="">
+		<env-filePath></env-filePath>
+	</gather>
+	
+	<logger class="">
+		<file></file>
+	</logger>
+	
+	<Back>
+		<back></back>
+	</Back>
+	 
+	<client class="">
+	<port></port>
+	<ip></ip>
+	</client>
+	
+	<server class="">
+		<serverport></serverport>
+	</server>
+	
+	
+	<dbStore class="">
+		<url></url>
+		<userName></userName>
+		<userPwd></userPwd>
+	</dbStore>
+
+</environment>
